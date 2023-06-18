@@ -1,0 +1,97 @@
+/*Develop a mini project that will:
+a) Display a list of numbers to the screen (random numbers).
+b) Pick one of those numbers at random and start a guessing game
+c) The user must guess the selected number. You must validate that the
+number the user guessed was valid, and among the choices listed.
+d) Tell the user whether or not the number they guessed is larger or smaller than the number you’re looking for.
+e) After a certain number of guesses, the user loses and gets prompted to try
+again.*/
+#include <iostream>
+using namespace std;
+int main() 
+{
+  cout<<"   choose a number from the below list to start a guessing game:\n";
+   int i,arr[50],n,large=0,flag=0,count=0;
+   int opt=1;
+   for(i=0;i<50;i++)
+   {
+     arr[i]=rand();
+   }
+   for(i=0;i<50;i++)
+   {
+     cout<<arr[i]<<"\n";
+   }
+  
+   cout<<"\nenter the number you choosen:";
+  cin>>n;
+  for(i=0;i<50;i++)
+  {
+    if(arr[i]==n)
+    {
+      flag=1;
+      cout<<"\nnumber you choosen is found\nyou won the game";
+      break;
+    }
+    else if (arr[i]>large)
+  {
+    large=arr[i];
+   }
+  }
+  if(flag==0)
+  {
+  if(large>n)
+  {
+    cout<<"\nnumber you entered is smaller\ntry again!!";
+    
+  }
+  if(large<n)
+  {
+    cout<<"\nnumber you entered is larger\ntry again!!";
+    
+  }
+  }
+  while(opt==1)
+  {
+    cout<<"\nenter the number you choosen:";
+  cin>>n;
+  for(i=0;i<50;i++)
+  {
+    if(arr[i]==n)
+    {
+      flag=1;
+      cout<<"\nnumber you choosen is found\nyou won the game";
+      break;
+    }
+    else if (arr[i]>large)
+  {
+    large=arr[i];
+   }
+  }
+  if(flag==0)
+  {
+  if(large>n)
+  {
+    cout<<"\nnumber you entered is smaller\ntry again!!";
+  }
+  if(large<n)
+  {
+    cout<<"\nnumber you entered is larger\ntry again!!";
+    
+    
+  }
+  }
+  if(flag==1)
+  {
+    break;
+  }
+    count++;
+    if(count==4)
+    {
+      cout<<"\nyou have tried a lot times \nyou losses the game exiting!!!!";
+      break;
+      opt=2;
+    }
+  }
+  
+
+}
